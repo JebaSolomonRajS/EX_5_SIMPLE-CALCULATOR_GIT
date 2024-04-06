@@ -1,5 +1,5 @@
-# Ex_5_-Develop a simple calculator using android studio.
-Develop a program to create a simple calculator using Android Studio.
+# EX_5_SIMPLE-CALCULATOR_GIT
+
 
 ## AIM:
 To develop a program to create a simple calculator using Android Studio.
@@ -29,42 +29,51 @@ Step 7: Save and run the application.
  ```
 /*
 Program to create simple calculator using Android Studio.
-Developed by: Praveen s
-RegisterNumber: 212222240077
+Developed by: Jeba Solomon Raj S
+RegisterNumber: 212223230089
 */
 ```
 
 ## MainActivity.java:
-```java
+```
 package com.example.calculator;
 
-import androidx.appcompat.app.AppCompatActivity;
-//import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.os.Bundle;
 import android.os.Bundle;
 
-import android.os.Bundle;
-import android.view.View;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import android.widget.EditText;
 import android.widget.TextView;
+import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
+
+
+
+
 public class MainActivity extends AppCompatActivity {
+
     EditText e1, e2;
     TextView t1;
     int num1, num2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
 
+
+        super.onCreate(savedInstanceState);
+
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
     public boolean getNumbers() {
 
         e1 = (EditText) findViewById(R.id.num1);
@@ -133,15 +142,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 ## activity_main.xml:
-```xml
+```
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".MainActivity">
 
     <TextView
@@ -280,11 +288,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 ```
+
 ## AndroidMainfest.xml
-```xml
+```
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -311,12 +318,10 @@ public class MainActivity extends AppCompatActivity {
     </application>
 
 </manifest>
-
 ```
-
 ## Output:
 
-![java ex5](https://github.com/JebaSolomonRajS/EX_5_SIMPLE-CALCULATOR_GIT/assets/139432449/01a5aeeb-7e20-442c-9758-c64240bf9009)
+![java ex5](https://github.com/JebaSolomonRajS/EX_5_SIMPLE-CALCULATOR_GIT/assets/139432449/3aec2811-c2ce-480a-bb15-5d0429170123)
 
 
 ## Result:
